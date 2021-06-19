@@ -1,0 +1,22 @@
+#container {
+  background-color: #ccc;
+  height: 960px;
+  padding: 1px;
+  width: 960px;
+}
+
+.black,
+.white {
+  float: left;
+  height: 100px;
+  margin: 1px;
+  width: 100px;
+}
+
+.black {
+  background: #333;
+}
+
+.white {
+  background-color: #efefef;
+}
