@@ -1,12 +1,38 @@
+body {
+  background-color: #9dd9d2;
+}
+
 .grid-container {
-  background-color: #ccc;
+  background-color: #fff8f0;
   height: 500px;
   width: 500px;
   display: grid;
-  /*I will need a solution for the columns to be adjustable, based on user input*/
+  margin: auto;
 }
 
-/* The border is temporary, have it on so I can make sure that the divs are aligned */
+#intro-text {
+  width: 500px;
+  height: 250px;
+  margin: auto;
+}
+
+#newGridButton {
+  margin: auto;
+  background: #fff8f0;
+  color: black;
+  padding: 10px;
+  border: 1px solid black;
+  transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+button:hover {
+  border-color: darkcyan;
+  color: white;
+  box-shadow: 0 0.5em 0.5em -0.4em #ff8811;
+  transform: translateY(0.25em);
+  cursor: pointer;
+}
+
 .grid-item {
   text-align: center;
   border: 1px solid black;

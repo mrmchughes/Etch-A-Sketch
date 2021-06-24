@@ -1,14 +1,33 @@
 let gridContainer = document.querySelector('#grid-container');
+let newGridButton = document.getElementById('newGridButton');
 
 window.addEventListener('load', startingGrid);
 
-//I need to make the below code more my own work, but it does work//  
+newGridButton.addEventListener('click', newGrid);
 
-//For tomorrow, my work will be cleaning the JS up and making it my own, and working on implementing a prompt for user to select the size of the grid//
 function startingGrid() {
     gridSize(16);
     fillGrid(16);
 };
+
+function emptyGrid() {
+    while (gridContainer.hasChildNodes()) {
+        gridContainer.removeChild(gridContainer.firstChild);
+    }
+}
+
+function newGrid(){
+    let count = parseInt(prompt('Please enter a number between 2 and 100 to make a new grid!'));
+    
+    if (isNaN(count) || (count < 2 || count > 100)) {
+        alert('Sorry, that will not work. Please try again.');
+        newGrid();
+    } else {
+        emptyGrid();
+        gridSize(count);
+        fillGrid(count);
+    }   
+}
 
 //controls number of columns//
 function gridSize(count) {
@@ -16,14 +35,10 @@ function gridSize(count) {
 };
 
 //controls number of divs within each columns, ie the rows//
-//To keep the column number and row number the same, perhaps call both functions at the same time for function update()//
-
 function fillGrid(count) {
     for (let i = 0; i < count * count; i++) {
         const gridDiv = document.createElement('div');
         gridDiv.className = 'grid-item';
-        //color change will be when div is hovered//
-        //Use the random rgb color function to set the color on hover//
         gridContainer.appendChild(gridDiv);
 
         gridDiv.addEventListener('mouseover', function(){
@@ -31,7 +46,7 @@ function fillGrid(count) {
             gridDiv.style.backgroundColor = newColor;
         })
     }  
-}; //see if i can refactor fillGrid, that is a lot for one function//
+}; 
 
 function randomColor() {
     const r = Math.floor(Math.random() * 256);
